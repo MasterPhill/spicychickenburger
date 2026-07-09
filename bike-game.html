@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Explorer Game</title>
+    <link rel="stylesheet" href="game-style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="game-header">
+        <h1>🚴 Bike Explorer Game</h1>
+        <p>Navigate your e-bike through traffic!</p>
+    </header>
+
+    <!-- GAME CONTAINER -->
+    <div class="game-container">
+        <!-- GAME CANVAS -->
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+        <!-- GAME INFO -->
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-label">Score:</span>
+                <span id="score" class="info-value">0</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Lives:</span>
+                <span id="lives" class="info-value">❤️❤️❤️</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Level:</span>
+                <span id="level" class="info-value">1</span>
+            </div>
+        </div>
+
+        <!-- GAME CONTROLS -->
+        <div class="game-controls">
+            <button id="startBtn" class="game-button start-btn">Start Game</button>
+            <button id="pauseBtn" class="game-button pause-btn" disabled>Pause</button>
+            <button id="resetBtn" class="game-button reset-btn">Reset</button>
+        </div>
+
+        <!-- INSTRUCTIONS -->
+        <div class="game-instructions">
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Use <strong>Arrow Keys</strong> or <strong>A/D</strong> to move left and right</li>
+                <li>Dodge the incoming cars on your e-bike! 🚗</li>
+                <li>Collect power-ups for bonus points 💪</li>
+                <li>Each level gets faster - stay sharp!</li>
+                <li>Lose 3 lives and it's game over</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- GAME OVER MODAL -->
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p id="gameOverMessage"></p>
+            <p id="finalScore"></p>
+            <button id="restartBtn" class="modal-button">Play Again</button>
+            <button id="closeBtn" class="modal-button secondary">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- ABOUT BIKING SECTION -->
+    <section class="biking-section">
+        <div class="container">
+            <h2>About My Biking</h2>
+            <p>
+                I love exploring on my e-bike! There's nothing quite like the freedom of riding through different trails and discovering new paths. 
+                My e-bike lets me cover more distance and explore areas I might not reach on a regular bike. It's an awesome way to stay active 
+                while having fun outdoors. Whether it's cruising through neighborhoods or tackling different terrains, e-biking combines the 
+                excitement of cycling with the convenience of electric power. 🚴‍♂️⚡
+            </p>
+            <p style="margin-top: 1.5rem; text-align: center;">
+                <a href="index.html" style="color: #e63946; text-decoration: none; font-weight: bold;">← Back to Home</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="game-footer">
+        <p>Have fun dodging cars on your e-bike adventure! 🎮</p>
+    </footer>
+
+    <script src="game-script.js"></script>
+</body>
+</html>
