@@ -1,0 +1,330 @@
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== GAME HEADER ===== */
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #e63946;
+}
+
+.game-header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* ===== GAME CONTAINER ===== */
+.game-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(230, 57, 70, 0.3);
+    margin-bottom: 3rem;
+}
+
+/* ===== CANVAS ===== */
+#gameCanvas {
+    display: block;
+    margin: 0 auto 1.5rem;
+    border: 3px solid #e63946;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* ===== GAME INFO ===== */
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e63946;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* ===== GAME CONTROLS ===== */
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+}
+
+.start-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.pause-btn {
+    background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+    color: white;
+}
+
+.pause-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.4);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+    color: white;
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.4);
+}
+
+.game-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== INSTRUCTIONS ===== */
+.game-instructions {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #e63946;
+}
+
+.game-instructions h3 {
+    margin-bottom: 1rem;
+    color: #4CAF50;
+    font-size: 1.2rem;
+}
+
+.game-instructions ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.game-instructions li {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.game-instructions strong {
+    color: #FFC107;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px solid #e63946;
+    max-width: 400px;
+    animation: slideIn 0.3s ease;
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #e63946;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+#finalScore {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 1.5rem;
+}
+
+.modal-button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.modal-button {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+}
+
+.modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.modal-button.secondary {
+    background: linear-gradient(135deg, #666 0%, #555 100%);
+}
+
+.modal-button.secondary:hover {
+    box-shadow: 0 6px 15px rgba(100, 100, 100, 0.4);
+}
+
+/* ===== BIKING SECTION ===== */
+.biking-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem 0;
+    margin-top: 3rem;
+    border-top: 2px solid #e63946;
+}
+
+.biking-section h2 {
+    font-size: 2rem;
+    color: #e63946;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.biking-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    text-align: center;
+    color: #ddd;
+}
+
+/* ===== FOOTER ===== */
+.game-footer {
+    text-align: center;
+    padding: 2rem;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .game-container {
+        padding: 1.5rem;
+    }
+
+    .game-info {
+        grid-template-columns: 1fr;
+    }
+
+    .game-controls {
+        flex-direction: column;
+    }
+
+    .game-button {
+        width: 100%;
+    }
+
+    .game-instructions li {
+        font-size: 0.85rem;
+    }
+
+    .modal-content {
+        margin: 1rem;
+    }
+
+    .biking-section p {
+        font-size: 0.95rem;
+    }
+}
